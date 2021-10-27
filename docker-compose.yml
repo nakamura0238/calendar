@@ -1,0 +1,21 @@
+version: '3'
+services:
+    node:
+        build:
+            context: ./front
+            dockerfile: Dockerfile
+        volumes:
+            - ./front:/usr/src/app
+        command: sh -c "cd next-calendar && npm run dev"
+        ports:
+            - "4000:3000"
+
+
+# create-next-app をインストール
+# docker-compose run --rm node npm install create-next-app
+
+# プロジェクトを作成
+# docker-compose run --rm node npx create-next-app next-calendar --ts
+
+# コンテナ作成
+# docker-compose up -d
